@@ -2,14 +2,6 @@ const { Router, application } = require('express');
 const router = Router();
 const { getDogs, detailDog, createDog } = require('./controller.js');
 
-//Obtener un listado de las razas de perro
-//Debe devolver solo los datos necesarios para la ruta principal
-
-// let dogs;
-// axios.get('https://api.thedogapi.com/v1/breeds').then(function (response) {
-//   dogs = response.data;
-// });
-
 router.get('/', async (req, res) => {
   const { name } = req.query;
 
@@ -21,10 +13,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:raza', async (req, res) => {
-  let { raza } = req.params;
+router.get('/:id', async (req, res) => {
+  let { id } = req.params;
   try {
-    const dog = await detailDog(raza);
+    const dog = await detailDog(id, getDogs);
     res.json(dog);
   } catch (error) {
     res.status(404).send({ error: error.message });
@@ -32,10 +24,12 @@ router.get('/:raza', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { nombre, peso, altura, años } = req.body;
+  const { image, breed, temperaments, hight, weight, years } = req.body;
 
   try {
-    res.json(await createDog(nombre, peso, altura, años, getDogs));
+    res.json(
+      await createDog(image, breed, temperaments, hight, weight, years, getDogs)
+    );
   } catch (error) {
     res.send(error.message);
   }

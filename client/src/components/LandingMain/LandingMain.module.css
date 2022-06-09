@@ -1,0 +1,7 @@
+.background {
+   background-image: url('https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2018/05/large-group-of-dogs-running-in-a-field.jpg');
+   background-repeat:no-repeat;     
+   background-size: cover;   
+   background-attachment: fixed;
+   min-height: 100vh; 
+}  

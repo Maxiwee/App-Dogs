@@ -7,19 +7,22 @@ module.exports = sequelize => {
     'Dog',
     {
       idDog: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
         unique: true,
       },
-      Nombre: {
+      Breed: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
       },
-      Altura: { type: DataTypes.INTEGER, allowNull: false },
-      Peso: { type: DataTypes.INTEGER, allowNull: false },
-      Anios_de_vida: { type: DataTypes.INTEGER, allowNull: false },
+      Hight: { type: DataTypes.STRING, allowNull: false },
+      Weight: { type: DataTypes.STRING, allowNull: false },
+      ['Years of life']: { type: DataTypes.STRING, allowNull: false },
+      Image: {
+        type: DataTypes.TEXT,
+      },
     },
     {
       timestamps: false,

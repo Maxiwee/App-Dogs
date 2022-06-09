@@ -11,12 +11,12 @@ module.exports = {
     dogsApi = dogsApi.data.map(d => {
       let dog = {
         id: d.id,
-        nombre: d.name,
-        peso: d.weight.metric,
-        altura: d.height.metric,
-        ['años de vida']: d.life_span,
-        temperamento: d.temperament,
-        imagen: d.image.url,
+        breed: d.name,
+        weight: d.weight.metric,
+        hight: d.height.metric,
+        ['years of life']: d.life_span,
+        temperament: d.temperament,
+        image: d.image.url,
       };
       return dog;
     });
@@ -26,12 +26,12 @@ module.exports = {
     dogsBd = dogsBd.map(d => {
       let dog = {
         id: d.idDog,
-        nombre: d.Nombre,
-        peso: d.Peso,
-        altura: d.Altura,
-        ['años de vida']: d.Anios_de_vida,
-        temperamento: 'TEMP',
-        imagen: 'IMG',
+        breed: d.Breed,
+        weight: d.Weight,
+        hight: d.Hight,
+        ['years of life']: d['Years of life'],
+        temperament: 'TEMP',
+        image: d.Image,
       };
       return dog;
     });
@@ -40,7 +40,7 @@ module.exports = {
 
     if (name) {
       const dogsFilter = allDogs.filter(dog =>
-        dog.nombre.toLowerCase().includes(name.toLowerCase())
+        dog.breed.toLowerCase().includes(name.toLowerCase())
       );
 
       if (!dogsFilter[0]) throw new Error('No existe la raza');
@@ -51,29 +51,47 @@ module.exports = {
     return allDogs;
   },
 
-  detailDog: async raza => {
-    const dog = await axios.get(
-      `https://api.thedogapi.com/v1/breeds/search?q=${raza}&api_key=${YOUR_API_KEY}`
-    );
+  detailDog: async (id, getDogs) => {
+    const dogsFound = (await getDogs()).find(dog => dog.id == id);
 
-    if (!dog.data.length) throw new Error('No existe la raza');
+    if (!dogsFound) throw new Error('Dog not found');
 
-    return dog.data;
+    return dogsFound;
   },
 
-  createDog: async (nombre, peso, altura, añosDeVida, getDogs) => {
-    if (!nombre || !peso || !altura || !añosDeVida)
+  createDog: async (
+    image,
+    breed,
+    temperaments,
+    hight,
+    weight,
+    years,
+    getDogs
+  ) => {
+    if (!breed || !weight || !hight || !years)
       throw new Error('Faltan campos sin llenar');
 
     let idMax = Math.max(...(await getDogs()).map(dog => dog.id));
+    let breedCorrect = breed.charAt(0).toUpperCase() + breed.slice(1);
 
     const newDog = await Dog.create({
       idDog: ++idMax,
-      Nombre: nombre,
-      Peso: peso,
-      Altura: altura,
-      Anios_de_vida: añosDeVida,
+      Breed: breedCorrect,
+      Weight: weight,
+      Hight: hight,
+      ['Years of life']: years,
+      Image:
+        image ||
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCYhhbdCPKaRgDx_ROZXhvT1bWoLrEN4EBtA&usqp=CAU',
     });
+
+    // Buscar temperamentos
+
+    // const temp = await Temperament.findAll({
+    //   where: { nombre: ['1', '2'] },
+    // });
+
+    // newDog.addTemperamento(temp);
 
     return newDog;
   },
