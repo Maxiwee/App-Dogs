@@ -93,9 +93,9 @@ module.exports = {
       Weight: weight,
       Height: height,
       ['Years of life']: years,
-      Image: image,
-      // ||
-      // 'https://mystickermania.com/cdn/stickers/into_the_web/sticker_2020-512x512.png',
+      Image:
+        image ||
+        'https://mystickermania.com/cdn/stickers/into_the_web/sticker_2020-512x512.png',
     });
 
     const temperament = await Temperament.findAll({
@@ -103,28 +103,6 @@ module.exports = {
     });
 
     newDog.addTemperament(temperament);
-
-    // const temperament = await Temperament.findAll({
-    //   where: {
-    //     nombre: temperaments.replace(/ /g, '').split(','),
-    //   },
-    // });
-
-    // const dog = await Dog.findByPk(newDog.idDog);
-    // await dog.addTemperament(temperament);
-
-    //console.log(temperaments.replace(/ /g, '').split(','));
-
-    // 'feliz, guardian'
-
-    // Buscar temperamentos
-    // temperaments.replace(/ /g, '').split(',')
-    // const temperaments = await Temperament.findAll({
-    //   where: { nombre: temperaments.replace(/ /g, '').split(',') },
-    // });
-    // const temp = await Temperament.findAll({
-    //   where: { nombre: ['1', '2'] },
-    // });
 
     return newDog;
   },
