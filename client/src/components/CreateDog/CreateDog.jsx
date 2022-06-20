@@ -90,7 +90,7 @@ const CreateDog = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://localhost:3001/dogs', input);
+      const resp = await axios.post('/dogs', input);
     } catch (error) {
       console.log(error.message);
     }

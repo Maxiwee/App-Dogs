@@ -13,7 +13,7 @@ import {
 } from '../action-types';
 
 export const getDogs = () => dispatch => {
-  return axios.get('http://localhost:3001/dogs').then(response => {
+  return axios.get('/dogs').then(response => {
     dispatch({ type: GET_DOGS, payload: response.data });
   });
 };
@@ -23,7 +23,7 @@ export const getDogByBreed = breed => async dispatch => {
     console.log(breed)
     if (!breed) alert('The field is empty');
     let breedFound = await axios.get(
-      `http://localhost:3001/dogs?name=${breed}`
+      `/dogs?name=${breed}`
     );
     return dispatch({ type: GET_DOGS_BY_BREEDS, payload: breedFound.data });
   } catch (error) {
@@ -32,12 +32,12 @@ export const getDogByBreed = breed => async dispatch => {
 };
 
 export const getBreedDetail = id => async dispatch => {
-  let breedFound = await axios.get(`http://localhost:3001/dogs/${id}`);
+  let breedFound = await axios.get(`/dogs/${id}`);
   return dispatch({ type: GET_BREED_DETAIL, payload: breedFound.data });
 };
 
 export const getTemperaments = () => dispatch => {
-  return axios.get('http://localhost:3001/temperaments').then(response => {
+  return axios.get('/temperaments').then(response => {
     dispatch({ type: GET_TEMPERAMENTS, payload: response.data });
   });
 };
