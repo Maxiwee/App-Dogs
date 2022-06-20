@@ -13,7 +13,7 @@ module.exports = {
         id: d.id,
         breed: d.name,
         weight: d.weight.metric,
-        hight: d.height.metric,
+        height: d.height.metric,
         ['years of life']: d.life_span,
         temperament: d.temperament,
         image: d.image.url,
@@ -21,16 +21,24 @@ module.exports = {
       return dog;
     });
 
-    let dogsBd = await Dog.findAll();
+    let dogsBd = await Dog.findAll({
+      include: [
+        {
+          model: Temperament,
+          attributes: ['name'],
+          through: { attributes: [] },
+        },
+      ],
+    });
 
     dogsBd = dogsBd.map(d => {
       let dog = {
         id: d.idDog,
         breed: d.Breed,
         weight: d.Weight,
-        hight: d.Hight,
+        height: d.Height,
         ['years of life']: d['Years of life'],
-        temperament: 'TEMP',
+        temperament: d.Temperaments.map(x => x.name).join(', '),
         image: d.Image,
       };
       return dog;
@@ -43,7 +51,8 @@ module.exports = {
         dog.breed.toLowerCase().includes(name.toLowerCase())
       );
 
-      if (!dogsFilter[0]) throw new Error('No existe la raza');
+      if (!dogsFilter[0])
+        throw new Error('The breed you are looking for does not exist');
 
       return dogsFilter;
     }
@@ -63,35 +72,59 @@ module.exports = {
     image,
     breed,
     temperaments,
-    hight,
+    height,
     weight,
     years,
     getDogs
   ) => {
-    if (!breed || !weight || !hight || !years)
+    if (!breed || !weight || !height || !years)
       throw new Error('Faltan campos sin llenar');
 
     let idMax = Math.max(...(await getDogs()).map(dog => dog.id));
-    let breedCorrect = breed.charAt(0).toUpperCase() + breed.slice(1);
+
+    Math.max(...(await getDogs()).map(dog => dog.id));
+
+    let breedCorrect =
+      breed.charAt(0).toUpperCase() + breed.slice(1).toLowerCase();
 
     const newDog = await Dog.create({
       idDog: ++idMax,
       Breed: breedCorrect,
       Weight: weight,
-      Hight: hight,
+      Height: height,
       ['Years of life']: years,
-      Image:
-        image ||
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCYhhbdCPKaRgDx_ROZXhvT1bWoLrEN4EBtA&usqp=CAU',
+      Image: image,
+      // ||
+      // 'https://mystickermania.com/cdn/stickers/into_the_web/sticker_2020-512x512.png',
     });
 
-    // Buscar temperamentos
+    const temperament = await Temperament.findAll({
+      where: { name: temperaments },
+    });
 
+    newDog.addTemperament(temperament);
+
+    // const temperament = await Temperament.findAll({
+    //   where: {
+    //     nombre: temperaments.replace(/ /g, '').split(','),
+    //   },
+    // });
+
+    // const dog = await Dog.findByPk(newDog.idDog);
+    // await dog.addTemperament(temperament);
+
+    //console.log(temperaments.replace(/ /g, '').split(','));
+
+    // 'feliz, guardian'
+
+    // Buscar temperamentos
+    // temperaments.replace(/ /g, '').split(',')
+    // const temperaments = await Temperament.findAll({
+    //   where: { nombre: temperaments.replace(/ /g, '').split(',') },
+    // });
     // const temp = await Temperament.findAll({
     //   where: { nombre: ['1', '2'] },
     // });
-
-    // newDog.addTemperamento(temp);
 
     return newDog;
   },

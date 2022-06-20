@@ -1,0 +1,99 @@
+.detailbody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url('https://img.freepik.com/free-photo/side-view-cute-dog-yellow-background_23-2148415251.jpg?w=2000');
+    background-repeat:no-repeat;     
+    background-size: cover;   
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+    .detailcard{
+        display: flex;
+        flex-direction: column;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        gap: 2rem;
+    }
+
+        .cardbody{
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: .5rem;
+        }
+
+            .bodytext{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            
+
+            
+            .detailimg{
+                height: max-content;
+            }
+
+                .detailimg  img{
+                    width: 30rem;
+                    height: max-content;
+                    border-radius: .5rem;
+                }
+
+
+            .descriptionbody{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 1rem;
+                margin: 0rem 1rem;
+            }
+
+            .textsize{
+                font-size: .5rem;
+            }
+
+
+                .temptext{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: .5rem;
+                }
+
+                .temptext p{
+                    word-break:break-all;
+                }
+
+
+            .buttonbody{
+                display: flex;
+                justify-content: center;
+            }
+                
+                
+
+                .buttonBack{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;    
+                    background-color: rgb(14, 13, 13);
+                    width: 2rem;
+                    height:2rem;    
+                    border-radius: 50%;
+                    color: white;
+                    box-shadow: .1rem .1rem rgba(0, 0, 0, 0.664);
+                    cursor: pointer;
+                    font-size: .7rem;
+                   }
+            
+                .buttonBack:hover{
+                    background-color: transparent;
+                    border: 0.1rem solid rgba(0, 0, 0, 0.4);
+                }

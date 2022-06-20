@@ -1,0 +1,42 @@
+.pagebody{
+    background-color: rgba(14, 13, 13,.9);
+    width: max-content;
+    padding: .5rem;
+    border-radius: 5rem;
+} 
+ 
+ .arrows{
+        align-items: center;
+        background: none;
+        border: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: .1rem;
+        cursor: pointer;
+        /* font-size: 1rem; */
+        font-weight: bold;
+        color: #F8CB2E;
+    }
+
+
+    .btnPages{
+        align-items: center;
+        background: none;
+        border: .1rem solid #F8CB2E;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: .1rem;
+        cursor: pointer;
+        color: #F8CB2E;
+    }
+
+    .btnPagesOn{
+        background: #F8CB2E;
+        border: .1rem solid rgb(14, 13, 13);
+        color: rgb(14, 13, 13);
+        width: 1.5rem;
+        height: 1.5rem;
+        
+        cursor: pointer;
+        box-shadow: 0 0 1px 1px rgb(14, 13, 13);
+    }

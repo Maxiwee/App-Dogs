@@ -1,15 +1,25 @@
 import React from 'react';
+import styles from './Pages.module.css';
 
-const Pages = ({ pagePrev, pageNext, pageSelect, pageNum }) => {
+const Pages = ({ pagePrev, pageNext, pageSelect, pageNum, click }) => {
   return (
-    <div>
-      <button onClick={() => pagePrev()}>{' < '}</button>
+    <div className={styles.pagebody}>
+      <button className={styles.arrows} onClick={() => pagePrev()}>
+        {' < '}
+      </button>
       {pageNum.map(num => (
-        <button onClick={e => pageSelect(e)} key={num} value={num}>
+        <button
+          className={num !== click ? styles.btnPages : styles.btnPagesOn}
+          onClick={e => pageSelect(e)}
+          key={num}
+          value={num}
+        >
           {num}
         </button>
       ))}
-      <button onClick={() => pageNext()}>{' > '}</button>
+      <button className={styles.arrows} onClick={() => pageNext()}>
+        {' > '}
+      </button>
     </div>
   );
 };

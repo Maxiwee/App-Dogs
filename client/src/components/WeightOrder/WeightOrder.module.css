@@ -1,0 +1,35 @@
+.bodyWeight{
+    /* margin-bottom: 4.5rem; */
+}
+
+
+    .textorder{
+        color: #F8CB2E;
+        margin-bottom: 1rem;
+    }
+
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: #F8CB2E;
+        border-radius: .2rem; 
+    }
+
+        .buttons button{
+            display: flex;
+            padding: 0.2rem;
+            justify-content: start;
+            align-items: flex-start;
+            border: none;
+            background: transparent;
+            color: #212121;
+            width: 100%;
+        }
+
+        .buttons button:hover{
+            background: #212121a9;
+            cursor: pointer;
+        }

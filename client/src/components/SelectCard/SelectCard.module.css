@@ -1,0 +1,39 @@
+.bodySelect{
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    height: max-content;
+    width: max-content;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: .1rem .2rem;
+    border-radius: 1rem;
+    border: .1rem solid black;
+    box-shadow: .1rem .1rem rgba(0, 0, 0,.6);
+    transition: all 100ms;
+}
+
+.bodySelect:hover{
+    transform: scale(1.1);
+    padding: 0 .1rem;
+}
+
+
+    .bodySelect button{
+        font-size: .8rem;
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+        border: none;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+   
+
+
+    .bodySelect button:hover{
+        color: rgb(207, 50, 50);
+        cursor: pointer;
+    }

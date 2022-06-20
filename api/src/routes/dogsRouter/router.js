@@ -24,11 +24,11 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { image, breed, temperaments, hight, weight, years } = req.body;
+  const { image, breed, temperaments, height, weight, years } = req.body;
 
   try {
     res.json(
-      await createDog(image, breed, temperaments, hight, weight, years, getDogs)
+      await createDog(image, breed, temperaments, height, weight, years, getDogs)
     );
   } catch (error) {
     res.send(error.message);

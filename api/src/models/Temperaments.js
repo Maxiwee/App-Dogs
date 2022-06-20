@@ -10,7 +10,7 @@ module.exports = sequelize => {
         autoIncrement: true,
         unique: true,
       },
-      nombre: { type: DataTypes.STRING, unique: true },
+      name: { type: DataTypes.STRING, unique: true },
     },
     {
       timestamps: false,

@@ -17,7 +17,7 @@ module.exports = sequelize => {
         allowNull: false,
         unique: true,
       },
-      Hight: { type: DataTypes.STRING, allowNull: false },
+      Height: { type: DataTypes.STRING, allowNull: false },
       Weight: { type: DataTypes.STRING, allowNull: false },
       ['Years of life']: { type: DataTypes.STRING, allowNull: false },
       Image: {

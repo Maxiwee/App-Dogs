@@ -1,0 +1,96 @@
+.bodynav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}    
+    
+    
+    .nav{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 6rem;
+        padding: 0.5rem;
+    }
+
+
+.bodybtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createdog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button:link,
+.button:link:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    height: max-content;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-white {
+    background-color: rgb(14, 13, 13);
+    color: #F8CB2E;
+}
+
+/* rgb(14, 13, 13); */
+.button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 90%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.button-white::after {
+    background-color: rgb(0, 0, 0);
+}
+
+.button:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.button-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

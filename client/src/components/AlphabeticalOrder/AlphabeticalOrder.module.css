@@ -1,0 +1,29 @@
+.bodyOrder{
+    margin-bottom: 1.6rem;
+} 
+
+    .bodyOrder label{
+        color: #F8CB2E;
+        margin-bottom: 1rem;
+    }
+
+.textorder{
+    color: #F8CB2E;
+}
+    .select{
+        background-color: #F8CB2E;
+        border-radius: .2rem;
+    }   
+    
+    .select:hover{
+        cursor: pointer;
+    }
+
+        .select option{
+            background-color: rgb(26, 26, 26);;
+            border-radius: .2rem;
+            color: white;
+        }
+
+
+     

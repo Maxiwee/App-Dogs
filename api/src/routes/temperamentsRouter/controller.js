@@ -15,7 +15,9 @@ module.exports = {
     ].filter(t => t !== '');
 
     for (let i = 0; i < temperamentsNotRepeat.length; i++) {
-      await Temperament.create({ nombre: temperamentsNotRepeat[i] });
+      await Temperament.findOrCreate({
+        where: { name: temperamentsNotRepeat[i] },
+      });
     }
 
     return Temperament.findAll();

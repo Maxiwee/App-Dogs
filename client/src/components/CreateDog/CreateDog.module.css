@@ -1,0 +1,234 @@
+.background{
+    background-image: url('../../images/createdog.jpg');
+    background-repeat:no-repeat;     
+    background-size: cover;   
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding-top: 3rem;
+}
+
+
+.required{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    font-family: 'Montserrat';
+    font-size: .8rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+
+.form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center; 
+   margin-top: 2rem;
+   /* background-color: red; */
+}
+    .bodyform{
+        /* background-color: rgb(38, 0, 255); */
+        width: max-content;
+        margin-left: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .bodyform h1{
+        text-transform: uppercase;
+    }
+
+    .bodyinputs{
+        display: flex;
+        justify-content: center;
+        gap: 3rem;    
+    }
+
+    label {
+        display: flex;
+        align-items: flex-start;
+        margin-top: .5rem;
+    }
+
+        .columnform {
+            display: flex;
+            flex-direction: column;
+            width: 15rem;
+            gap: .5rem
+        }
+
+        .columformsize{
+            width: 7rem;
+        }
+        
+
+            .inputs{
+                margin-top: -.3rem;
+                border: none;
+                outline: none;
+                height: 2rem;
+                border-radius: 0.1rem ;
+                border-bottom: solid 1px black;
+                background-color: rgba(255, 255, 255, .1);
+                font-family: 'Montserrat';
+                font-weight: bold;
+                padding-left: .3rem;
+            }
+
+                .inputs::placeholder{
+                    font-family: 'Montserrat';
+                    font-size: .6rem;
+                    color: rgba(0, 0, 0, 0.7);
+                }
+
+
+                .inputIncorrect{
+                    margin-top: -.3rem;
+                    border: none;
+                    outline: none;
+                    height: 2rem;
+                    border-radius: 0.1rem ;
+                    border-bottom: solid 1px rgb(167, 0, 0);
+                    background-color: rgba(255, 255, 255, .1);
+                    font-family: 'Montserrat';
+                    font-weight: bold;
+                    padding-left: .2rem;
+                }
+
+                .inputIncorrect::placeholder{
+                    font-family: 'Montserrat';
+                    font-size: .6rem;
+                    padding-left: .2rem;
+                    color: rgba(0, 0, 0, 0.7);
+                }
+
+              
+             
+            .select{
+               background-color: transparent;
+               border-radius: .2rem;
+            }  
+            
+            .select:hover{
+                cursor: pointer;
+            }
+                .select option{
+                    background-color: #212121;
+                    border-radius: .2rem;
+                    color: white;
+                }
+
+               
+                
+            .selection{
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+            }   
+
+                .maxselect{
+                    border-top: 0.1rem solid rgb(167, 0, 0);;
+                    border-bottom: 0.1rem solid rgb(167, 0, 0);;
+                    padding: 0.1rem;
+                    color: rgb(167, 0, 0);
+                }
+            
+            .wrap {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 2rem 0;
+            }   
+                .offButton {
+                width: 100px;
+                height: 45px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                font-weight: 500;
+                color: #000;
+                background-color:#a58d16;
+                border: none;
+                border-radius: 45px;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+                outline: none;
+                }
+                
+                .offButton{
+                   cursor: default; 
+                }
+              
+              .button {
+                width: 100px;
+                height: 45px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                font-weight: 500;
+                color: #000;
+                background-color: #fed821;
+                border: none;
+                border-radius: 45px;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+                outline: none;
+                }
+
+                              
+              .button:hover {
+                background-color: #2EE59D;
+                box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+                color: #fff;
+                transform: translateY(-7px);
+              }
+
+
+               .submit{
+                    color: #498649;
+                    font-size: .9rem;
+                    height: .9rem;
+               }      
+       
+       .errors{
+        display: flex;
+        height: max-content;
+       }
+       
+       .errors span{
+        font-family: 'Montserrat';
+        font-size: .6rem;
+        margin-top: -.4rem;
+        color: rgb(167, 0, 0);
+        font-weight: bold;
+        text-transform: uppercase;
+       }
+
+
+       .buttonBack{
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        background-color: rgb(14, 13, 13);
+        width: 2rem;
+        height:2rem;    
+        border-radius: 50%;
+        color: white;
+        box-shadow: .1rem .1rem rgba(0, 0, 0, 0.664);
+        cursor: pointer;
+        font-size: .7rem;
+       }
+
+       .buttonBack:hover{
+        background-color: transparent;
+        border: 0.1rem solid rgba(0, 0, 0, 0.4);
+       }

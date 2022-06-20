@@ -1,0 +1,25 @@
+
+.textorder{
+    color: #F8CB2E;
+    margin-bottom: 1rem;
+}
+
+
+.select{
+    background-color: #F8CB2E   ;
+    border-radius: .2rem;
+    
+} 
+
+.select:hover{
+    cursor: pointer;
+}
+
+     .select option{
+         background-color: #212121;
+         border-radius: .2rem;
+         color: white;
+     }
+
+  
+
