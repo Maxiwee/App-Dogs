@@ -19,13 +19,7 @@ const DetailDog = () => {
         <h1> DETAILD BREED</h1>
         <div className={styles.cardbody}>
           <div className={styles.detailimg}>
-            <img
-              src={
-                'https://mystickermania.com/cdn/stickers/into_the_web/sticker_2020-512x512.png'
-              }
-              alt='image'
-              srcset={detailBreed.image}
-            />
+            <img src={detailBreed.image} alt='image' />
           </div>
           <div className={styles.bodytext}>
             <div>

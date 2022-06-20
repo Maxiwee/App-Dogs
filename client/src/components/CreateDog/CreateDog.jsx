@@ -34,16 +34,15 @@ const CreateDog = () => {
   const validationForm = input => {
     let errors = {};
 
-
     //validations input image
-    
-    // if (!input.image) setErrors({});
-    // else if (
-    //   !/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(
-    //     input.image
-    //   )
-    // )
-    //   errors.image = 'Not valid format';
+
+    if (!input.image) setErrors({});
+    else if (
+      !/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+(?:png|jpg|jpeg|gif|svg)+$/.test(
+        input.image
+      )
+    )
+      errors.image = 'Not valid format';
 
     //validations input breed
 
@@ -52,7 +51,6 @@ const CreateDog = () => {
         breed.breed.toLowerCase().replace(/\s+/g, '') ===
         input.breed.toLowerCase().replace(/\s+/g, '')
     );
-
 
     if (!input.breed) errors.breed = 'This field is required';
     else if (!/^.{0,25}$/.test(input.breed))

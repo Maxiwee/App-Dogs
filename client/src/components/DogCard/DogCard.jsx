@@ -5,13 +5,7 @@ const DogCard = props => {
   return (
     <div className={styles.card}>
       <section className={styles.image}>
-        <img
-          src={
-            'https://mystickermania.com/cdn/stickers/into_the_web/sticker_2020-512x512.png'
-          }
-          alt={'Image'}
-          srcset={props.image}
-        />
+        <img src={props.image} alt={'Image'} />
       </section>
       <div className={styles.texts}>
         <section className={styles.name}>
