@@ -47,7 +47,7 @@ const OrderByWeight = (o1, o2) => {
     return -1;
   }
   if (weight1 < weight2) {
-    return 1;
+    return 1; 
   }
   return 0;
 };
