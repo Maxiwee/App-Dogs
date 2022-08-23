@@ -4,9 +4,7 @@ const { Dog, Temperament } = require('../../db.js');
 
 module.exports = {
   getDogs: async name => {
-    let dogsApi = await axios.get(
-      `https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`
-    );
+    let dogsApi = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
     dogsApi = dogsApi.data.map(d => {
       let dog = {
